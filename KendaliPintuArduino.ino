@@ -17,24 +17,14 @@ boolean isInputting = false;
 
 const byte ROWS = 4;
 const byte COLS = 3;
-char keys[ROWS][COLS] = {
-  {
-    '1','2','3'        }
-  ,
-  {
-    '4','5','6'        }
-  ,
-  {
-    '7','8','9'        }
-  ,
-  {
-    '*','0','#'        }
-};
+char keys[ROWS][COLS] = 
+{{'1','2','3'},
+{'4','5','6'},
+{'7','8','9'},
+{'*','0','#'}};
 
-byte rowPins[ROWS] = {
-  2, 3, 4, 5};
-byte colPins[COLS] = {
-  6, 7, 8};
+byte rowPins[ROWS] = {2, 3, 4, 5};
+byte colPins[COLS] = {6, 7, 8};
 
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 LiquidCrystal_I2C lcd(0x27,20,4);
@@ -261,13 +251,13 @@ void auth_user(char user_input[]){
      }*/
     Serial.println("Sending failed");
     String pass(user_input);
-    if(pass == "123"){
-      if(pass != "keluar"){
+    if(pass != "keluar"){
+      if(pass == "123"){
         open_door();
       }
-    }
-    else{
-      wrong_password();
+      else{
+        wrong_password();
+      }
     }
   }
 }
@@ -315,8 +305,8 @@ void wrong_password(){
   Serial.println("Wrong Password");
   delay(1000);
   /*if(!device_isLock()){
-    lcd_init();
-  }*/
+   lcd_init();
+   }*/
   idleTime = millis();
 }
 
@@ -377,5 +367,8 @@ void lcd_offline(boolean b){
     lcd.print(" ");
   }
 }
+
+
+
 
 
