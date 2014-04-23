@@ -44,9 +44,10 @@ long idleTime = 0;
 long interval_reset = 180000;
 long interval_idle = 20000;
 
-boolean disp_online = false;
+boolean disp_init = false;
 boolean disp_lock = false;
 boolean disp_offline = false;
+boolean disp_online = false;
 boolean disp_inactive = false;
 
 void setup(){
@@ -74,14 +75,15 @@ void loop(){
     while(client.connected()){
       if(client.available()){
         if(client.find("GET /")){
-          while(client.findUntil("command_", "\n\r")){  
+          while(client.findUntil("command_", "\n\r")){
+            if(!disp_online){
+              disp_online = true;
+              disp_offline = false;
+              lcd_offline(false);
+            }  
             char type = client.read();
             if(type == 'o') {
               Serial.println("Open Command");
-              /*if(!disp_offline){
-               disp_offline = true;
-               lcd_offline(false);
-               }*/
               client.println("HTTP/1.1 200 OK");
               client.println("Content-Type: application/json");
               client.println();
@@ -243,12 +245,18 @@ void auth_user(char user_input[]){
     client.print("Host: 192.168.2.4\n");
     client.print("Connection: close\n\n");
     Serial.println("Sending success");
+    if(!disp_online){
+      disp_online = true;
+      disp_offline = false;
+      lcd_offline(false);
+    }
   }
   else{
-    /*if(!disp_offline){
-     disp_offline = true;
-     lcd_offline(true);
-     }*/
+    if(!disp_offline){
+      disp_online = false;
+      disp_offline = true;
+      lcd_offline(true);
+    }
     Serial.println("Sending failed");
     String pass(user_input);
     if(pass != "keluar"){
@@ -281,15 +289,15 @@ boolean device_isLock(){
       lcd.setCursor(0,3);
       lcd.print("Tunggu 30 detik");
       disp_lock = true;
-      disp_online = false;
+      disp_init = false;
       disp_inactive = false;
     }
     return true;
   }
   else{
-    if(!disp_online){
+    if(!disp_init){
       lcd_init();
-      disp_online = true;
+      disp_init = true;
       disp_lock = false;
       disp_inactive = false;
     }
@@ -304,9 +312,6 @@ void wrong_password(){
   }
   Serial.println("Wrong Password");
   delay(1000);
-  /*if(!device_isLock()){
-   lcd_init();
-   }*/
   idleTime = millis();
 }
 
@@ -330,7 +335,7 @@ void lcd_init(){
 }
 
 void lcd_print(String s){
-  disp_online = false;
+  disp_init = false;
   disp_lock = false;
   lcd.setCursor(0,1);
   for(int i=0;i<20;i++){
