@@ -7,6 +7,7 @@ KendaliPintuArduino is an Arduino based hardware as the hardware of my College F
 The web part is [here] (https://github.com/Dimasdanz/KendaliPintuWeb)  
 The android application part is [here] (https://github.com/Dimasdanz/KendaliPintuAndroid)
 ##  Description
+##### Watch the demo on [YouTube] (http://youtu.be/4TFnDXBnQ44)
 Door Control is an Arduino based hardware controlled by a web and an Android Application.  
 This hardware is used to control a door, and authorize people and record every user who uses the door.  
 The Arduino can be enabled/disabled via Android and Web.  
