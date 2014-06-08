@@ -6,11 +6,8 @@ KendaliPintuArduino is an Arduino based hardware as the hardware of my College F
 
 The web part is [here] (https://github.com/Dimasdanz/KendaliPintuWeb)  
 The android application part is [here] (https://github.com/Dimasdanz/KendaliPintuAndroid)
-
-This repository is only intended as a backup from my computer.  
-I will NOT answer any question regading of this app.
-
 ##  Description
+##### Watch the demo on [YouTube] (http://youtu.be/4TFnDXBnQ44)
 Door Control is an Arduino based hardware controlled by a web and an Android Application.  
 This hardware is used to control a door, and authorize people and record every user who uses the door.  
 The Arduino can be enabled/disabled via Android and Web.  
@@ -21,7 +18,6 @@ Every log such as enabling/disabling, people enter or exit will be recorded and 
 To use the Android app, you need to login as user which stored in the database.  
 To enable all function of the Android app, you need to login as admin which also stored in the database.  
 CRUD operation of user and admin is done via the web.
-
 ## License
 Copyright (C) 2014 Dimas Rullyan Danu
 
@@ -37,3 +33,19 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
+### Note
+Feel free to use this. If you find this useful or use this as base of your project. Give star to this repository    
+And you have to include my name and link it to this page :D
+
+###Credit:
+ 1. [SB-Admin] (http://startbootstrap.com/sb-admin-v2) as template of the web
+ 1. [Bootswatch Slate] (http://bootswatch.com/slate/) for color theme
+ 1. [Bootstrap](http://www.getbootstrap.com/) for the front-end framework
+ 1. [CodeIgniter](http://ellislab.com/codeigniter/) for the framwework
+ 1. [Zbar] (http://zbar.sourceforge.net/) for barcode library for Android
+ 1. If you think your name should be here, feel free to contact me
+
+###Contact:
+ + [Facebook](http://www.facebook.com/Dimasdanz)
+ + [Twitter](http://www.twitter.com/Dimasdanz)
+ + dimasdanz@gmail.com
