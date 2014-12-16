@@ -1,6 +1,6 @@
 KendaliPintuArduino
 ===================
-#### Dimas Rullyan Danu (dimasdanz@gmail.com)
+### [Dimas Rullyan Danu](http://id.linkedin.com/pub/dimas-r-danu/94/160/4b8/) (dimasdanz@gmail.com)
 
 KendaliPintuArduino is an Arduino based hardware as the hardware of my College Final Project. This Arduino is controlled by Web and an Android Application.
 
@@ -48,4 +48,5 @@ And you have to include my name and link it to this page :D
 ###Contact:
  + [Facebook](http://www.facebook.com/Dimasdanz)
  + [Twitter](http://www.twitter.com/Dimasdanz)
+ + [LinkedIn](http://id.linkedin.com/pub/dimas-r-danu/94/160/4b8/)
  + dimasdanz@gmail.com
